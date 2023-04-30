@@ -18,13 +18,13 @@ always @(posedge clk) begin
 //    1       1	     load and logical right shift
 //    1		0	     load and arithmetic right shift
   if(!enable) begin
-   out <= in
+   out <= in;
   end
   else if (enable && mode) begin
-   out <= in >> 1 // alternative way : {1'b0, in[WIDTH-1:1]};
+   out <= in >> 1; // alternative way : {1'b0, in[WIDTH-1:1]};
   end
   else if (enable && !mode) begin
-   out <= in >>> 1 // alternative way : {in[WIDTH-1], in[WIDTH-1:1]}
+   out <= in >>> 1; // alternative way : {in[WIDTH-1], in[WIDTH-1:1]}
   end
  end
 endmodule
