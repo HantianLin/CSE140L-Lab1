@@ -21,10 +21,10 @@ always @(posedge clk) begin
    out <= in;
   end
   else if (enable && mode) begin
-   out <= in >> 1; // alternative way : {1'b0, in[WIDTH-1:1]};
+   out <= {1'b0, in[WIDTH-1:1]}; // alternative way : in >> 1
   end
   else if (enable && !mode) begin
-   out <= in >>> 1; // alternative way : {in[WIDTH-1], in[WIDTH-1:1]}
+   out <= {in[WIDTH-1], in[WIDTH-1:1]}; // alternative way : in >>> 1
   end
  end
 endmodule
