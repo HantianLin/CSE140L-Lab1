@@ -21,20 +21,10 @@ always @(posedge clk) begin
    out <= in
   end
   else if (enable && mode) begin
-   out <= {1'b0, in[WIDTH-1:1]};//  load and logical right shift
+   out <= in >> 1 // alternative way : {1'b0, in[WIDTH-1:1]};
   end
   else if (enable && !mode) begin
-   out <= {in[WIDTH-1], in[WIDTH-1:1]}
+   out <= in >>> 1 // alternative way : {in[WIDTH-1], in[WIDTH-1:1]}
   end
  end
-
-/* logical right shift fills in 0s from the left
-// alternative: use concatenation operator {}
-  logic[3:0] a, b;
-  assign a = 4'b1000;   // = +8 decimal
-  assign b = {1'b0,a[3:1]}; // b = 4'b0100 = +4 decimal
-  assign b = {a[3],a[3:1]}; // b = 4'b1100 = +12 decimal (or -4 decimal if two's comp.)
-  Note that concat. forces the handling of the most significant bit, irrespective of signed or unsigned declaration of operands or outputs.
-  It brute-force grabs the bits and manipulates them.
-*/
 endmodule
