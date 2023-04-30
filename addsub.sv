@@ -13,6 +13,9 @@ module addsub #(parameter dw=8)		 // dw = data width
 // combinational logic, use blocking (=) assignment      
 //add_sub       result
 //1             dataa + datab;						
-//0             dataa - datab;   
+//0             dataa - datab;
+   
+ always_comb
+	result[dw-1:0] = add_sub ? dataa[dw-1:0] + datab[dw-1:0] : dataa[dw-1:0] - datab[dw-1:0];
 
 endmodule
