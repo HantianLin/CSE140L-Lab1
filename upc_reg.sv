@@ -12,9 +12,20 @@ module upcreg(
 // fill in guts
 //   if(...) upc <= ...; else if(...) upc <= ...; else ... 
 //   reset    load_incr	    upc
-//     1		1			 0
-//	   1		0            0
-//	   0		1		   upc_next
-//	   0	    0          upc+1
+//    1	      	1			   0
+//	   1	 			0           0
+//	   0				1		   upc_next
+//	   0			   0          upc+1
+   if (reset) begin
+    upc <= 0;
+   end
+   else begin
+    if (load_incr) begin
+     upc <= upc_next;
+    end
+    else begin
+     upc <= upc + 1;
+    end
+   end
   end
-endmodule    
+endmodule  
