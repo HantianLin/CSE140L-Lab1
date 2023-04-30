@@ -8,7 +8,7 @@ module register # (parameter N = 8)
     output logic [N-1:0] out
     );
 	 
-  always_ff @ (posedge clk, posedge clear)    begin
+always_ff @ (posedge clk, posedge clear)    begin
 		if (clear) begin
 			// if clear = 1, out is always 0
 			out <= 0;
@@ -24,3 +24,4 @@ module register # (parameter N = 8)
 end	
 		
 endmodule
+
