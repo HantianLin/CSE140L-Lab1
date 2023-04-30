@@ -12,11 +12,11 @@ module mux2 #(parameter WIDTH = 8)
 // 1   d1	y[7:0] = d1[7:0]
 
 always_comb begin
-	if (s == 1'b0) begin
-		y[7:0] = d0[7:0]
-	end
-	else begin
-		y[7:0] = d1[7:0]
-	end
+ if (s == 1'b0) begin
+  y[7:0] = d0[7:0]
+ end
+ else begin
+  y[7:0] = d1[7:0]
+ end
 end
 endmodule
