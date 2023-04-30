@@ -12,7 +12,7 @@ module mux3 #(parameter WIDTH = 8)
 //  1     0    d2
 //  1     1	   d2
 
-always_comb begin
+always @* begin
  if (s == 2'b00) begin
   y[7:0] = d0[7:0];
  end
