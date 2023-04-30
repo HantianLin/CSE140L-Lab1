@@ -29,9 +29,10 @@ module rom(
     mem[16] = 23'b00010001100000010001000;
     mem[17] = 23'b10010001000000000000000;
   end
-
+  
 // fill in the guts
 //   out = mem(addr)	   assign data = ...      always_comb data = ...
 //  data = mem(addr)	   [ ]
+  assign data = mem[addr] // read data from memory at address
 
 endmodule
