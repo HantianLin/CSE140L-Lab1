@@ -13,14 +13,14 @@ module mux3 #(parameter WIDTH = 8)
 //  1     1	   d2
 
 always_comb begin
-	if (s == 2'b00) begin
-		y[7:0] = d0[7:0];
-	end
-	else if (s == 2'b01) begin
-		y[7:0] = d1[7:0];
-	end
-	else if (s == 2'b10 || s == 2'b11) begin
-		y[7:0] = d2[7:0];
-	end
+ if (s == 2'b00) begin
+  y[7:0] = d0[7:0];
+ end
+ else if (s == 2'b01) begin
+  y[7:0] = d1[7:0];
+ end
+ else if (s == 2'b10 || s == 2'b11) begin
+  y[7:0] = d2[7:0];
+ end
 end
 endmodule
